@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:28:33 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/23 15:41:58 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/23 21:32:30 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static size_t	ft_count_word(const char *str, char c)
 {
 	size_t	i;
-	size_t	count;
+	size_t	in_word;
 	size_t	word;
 
 	i = 0;
-	count = 0;
+	in_word = 0;
 	word = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
-			count = 0;
-		else if (count == 0)
+			in_word = 0;
+		else if (in_word == 0)
 		{
-			count = 1;
+			in_word = 1;
 			word++;
 		}
 		i++;
@@ -50,13 +50,13 @@ static void	ft_free(char **ptr, int c)
 	int	i;
 
 	i = 0;
-	--c;
+	c--;
 	while (i <= c)
 		free(ptr[i++]);
 	free(ptr);
 }
 
-static char	**ft_loop(char **ptr, const char *s, char c)
+static char	**fill_words(char **ptr, const char *s, char c)
 {
 	size_t	i;
 	size_t	k;
@@ -94,5 +94,5 @@ char	**ft_split(char const *s, char c)
 	ptr = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
 	if (!ptr)
 		return (NULL);
-	return (ft_loop(ptr, s, c));
+	return (fill_words(ptr, s, c));
 }
