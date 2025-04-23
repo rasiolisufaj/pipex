@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:33:06 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/23 09:35:00 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:43:38 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,20 @@
 # include <errno.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+typedef struct s_struct
+{
+	char	*infile;
+	int		fdin;
+	char	*outfile;
+	int		fdout;
+}	t_list;
+
+char	*ft_strdup(const char *str);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
+
+size_t	ft_strlen(const char *str);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

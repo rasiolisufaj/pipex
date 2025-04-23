@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:28:33 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/23 09:47:48 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:41:58 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,16 @@ static char	**ft_loop(char **ptr, const char *s, char c)
 	}
 	ptr[k] = NULL;
 	return (ptr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ptr;
+
+	if (!s)
+		return (NULL);
+	ptr = malloc(sizeof(char *) * (ft_count_word(s, c) + 1));
+	if (!ptr)
+		return (NULL);
+	return (ft_loop(ptr, s, c));
 }
