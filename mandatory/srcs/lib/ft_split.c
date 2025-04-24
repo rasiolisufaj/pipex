@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:28:33 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/23 21:32:30 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:03:47 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,44 +45,45 @@ static size_t	ft_word_len(const char *s, char c)
 	return (len);
 }
 
-static void	ft_free(char **ptr, int c)
+static void	ft_free(char **ptr, int strs)
 {
 	int	i;
 
 	i = 0;
-	c--;
-	while (i <= c)
+	if (!ptr)
+		return ;
+	while (i < strs)
 		free(ptr[i++]);
 	free(ptr);
 }
 
-static char	**fill_words(char **ptr, const char *s, char c)
+static char	**fill_words(char **result, const char *s, char c)
 {
 	size_t	i;
-	size_t	k;
-	size_t	j;
-	size_t	word_len;
+	size_t	res_index;
+	size_t	wd_index;
+	size_t	wd_len;
 
 	i = 0;
-	k = 0;
+	res_index = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			word_len = ft_word_len(&s[i], c);
-			ptr[k] = malloc((word_len + 1) * sizeof(char));
-			if (!ptr[k])
-				return (ft_free(ptr, k), NULL);
-			j = 0;
-			while (j < word_len)
-				ptr[k][j++] = s[i++];
-			ptr[k++][j] = '\0';
+			wd_len = ft_word_len(&s[i], c);
+			result[res_index] = malloc((wd_len + 1) * sizeof(char));
+			if (!result[res_index])
+				return (ft_free(result, res_index), NULL);
+			wd_index = 0;
+			while (wd_index < wd_len)
+				result[res_index][wd_index++] = s[i++];
+			result[res_index++][wd_index] = '\0';
 		}
 		else
 			i++;
 	}
-	ptr[k] = NULL;
-	return (ptr);
+	result[res_index] = NULL;
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
