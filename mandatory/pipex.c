@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:30:26 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:40:00 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:04:07 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void	ft_first_child(char **av, char **envp, t_pipex *data)
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	if (ft_strchr(av[2], '/'))
+		execve(data->argument[0], data->argument, envp);
+	else
+		ft_execve(data, envp);
 }
 
 void	ft_second_child(char **av, char **envp, t_pipex *data)
@@ -111,6 +115,6 @@ int	main(int ac, char **av, char **envp)
 		ft_second_child(av, envp, &data);
 	ft_close(&data, 2);
 	waitpid(data.pid_child1, NULL, 0);
-	waitpid(data.pid_child1, NULL, 0);
+	waitpid(data.pid_child2, NULL, 0);
 	return (0);
 }
