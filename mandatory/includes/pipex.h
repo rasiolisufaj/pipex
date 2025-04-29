@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:33:06 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:01:08 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:24:10 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ char	**ft_split(char const *s, char c);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *str);
+
+void	ft_init_fork(t_pipex *data, int child_nb);
+void	ft_free(t_pipex *data, int check_nb);
+void	ft_first_child(char **av, char **envp, t_pipex *data);
+void	ft_second_child(char **av, char **envp, t_pipex *data);
 
 void	ft_close(t_pipex *data, int fd_nb);
 void	ft_execve(t_pipex *data, char **envp);
