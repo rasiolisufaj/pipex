@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:28:33 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/24 14:03:47 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:30:45 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static size_t	ft_word_len(const char *s, char c)
 	return (len);
 }
 
-static void	ft_free(char **ptr, int strs)
+static void	ft_free_split(char **ptr, int strs)
 {
 	int	i;
 
@@ -73,7 +73,7 @@ static char	**fill_words(char **result, const char *s, char c)
 			wd_len = ft_word_len(&s[i], c);
 			result[res_index] = malloc((wd_len + 1) * sizeof(char));
 			if (!result[res_index])
-				return (ft_free(result, res_index), NULL);
+				return (ft_free_split(result, res_index), NULL);
 			wd_index = 0;
 			while (wd_index < wd_len)
 				result[res_index][wd_index++] = s[i++];

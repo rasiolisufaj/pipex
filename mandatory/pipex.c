@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:30:26 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:16:48 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:40:00 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ int	main(int ac, char **av, char **envp)
 	t_pipex	data;
 
 	if (ac != 5)
-		return (ft_putstr_fd("Error\nInvalid number of arguments\n", 2), 1);
+		return (ft_putstr_fd("ERROR\nUsage: ./pipex infile cmd1 cmd2 outfile\n"
+				, 2), 1);
 	if (pipe(data.pipe_fd) < 0)
 		return (perror("Error"), 1);
 	ft_init_fork(&data, 1);

@@ -8,7 +8,7 @@ INC_DIR = mandatory/includes
 LIB_DIR = $(SRC_DIR)/lib
 UTILS_DIR = $(SRC_DIR)/utils
 
-SRCS = $(SRC_DIR)/pipex.c \
+SRCS = mandatory/pipex.c \
 	   $(LIB_DIR)/ft_split.c \
 	   $(LIB_DIR)/ft_strdup.c \
 	   $(LIB_DIR)/ft_strjoin.c \

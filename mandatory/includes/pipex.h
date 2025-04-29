@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:33:06 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:24:10 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/04/29 17:33:06 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <errno.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 
