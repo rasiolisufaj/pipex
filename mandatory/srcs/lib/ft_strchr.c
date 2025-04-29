@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 16:30:26 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:04:02 by raisufaj         ###   ########.fr       */
+/*   Created: 2025/04/29 15:05:44 by raisufaj          #+#    #+#             */
+/*   Updated: 2025/04/29 15:05:56 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/pipex.h"
+#include "../../includes/pipex.h"
 
-void	ft_init_fork(t_pipex *data, int child_nb)
+char	*ft_strchr(const char *str, int c)
 {
-	if (child_nb == 1)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		data->pid_child1 = fork();
-		if (data->pid_child1 < 0)
+		if (str[i] == (unsigned char)c)
 		{
-			perror("Error");
-			exit(EXIT_FAILURE);
+			return ((char *) &str[i]);
 		}
+		i++;
 	}
-	else if (child_nb == 2)
-	{
-		data->pid_child2 = fork();
-		if (data->pid_child2 < 0)
-		{
-			perror("Error");
-			exit(EXIT_FAILURE);
-		}
-	}
+	if (str[i] == (unsigned char)c)
+		return ((char *) &str[i]);
+	return (NULL);
 }

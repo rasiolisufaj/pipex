@@ -14,8 +14,8 @@ SRCS = $(SRC_DIR)/pipex.c \
 	   $(LIB_DIR)/ft_strjoin.c \
 	   $(LIB_DIR)/ft_strlen.c \
 	   $(LIB_DIR)/ft_strncmp.c \
-	   $(LIB_DIR)/ft_strtok.c \
-	   $(UTILS_DIR)/error_handling.c \
+	   $(LIB_DIR)/ft_putstr_fd.c \
+	   $(LIB_DIR)/ft_strchr.c \
 	   $(UTILS_DIR)/pipex_utils.c \
 
 OBJS = $(SRCS:.c=.o)
