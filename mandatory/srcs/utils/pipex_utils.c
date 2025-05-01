@@ -6,7 +6,7 @@
 /*   By: raisufaj <raisufaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:29:55 by raisufaj          #+#    #+#             */
-/*   Updated: 2025/04/29 17:45:31 by raisufaj         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:51:36 by raisufaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ int	ft_open(char **av, int file_nb)
 
 char	*ft_get_command(char **path, char *argument)
 {
-	char	*to_free;
-	char	*to_return;
+	char	*created_dir;
+	char	*cmd_path;
 	int		i;
 
 	i = 0;
 	while (path[i])
 	{
-		to_free = ft_strjoin(path[i], "/");
-		to_return = ft_strjoin(to_free, argument);
-		free(to_free);
-		if (access(to_return, 0) == 0)
-			return (to_return);
-		free(to_return);
+		created_dir = ft_strjoin(path[i], "/");
+		cmd_path = ft_strjoin(created_dir, argument);
+		free(created_dir);
+		if (access(cmd_path, 0) == 0)
+			return (cmd_path);
+		free(cmd_path);
 		i++;
 	}
 	return (NULL);
